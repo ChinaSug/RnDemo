@@ -8,11 +8,8 @@ import {
     View
 } from 'react-native';
 import {
-    createBottomTabNavigator,
-    BottomTabBar
+    createBottomTabNavigator
 } from 'react-navigation';
-
-const TabBarComponent = (props) => (<BottomTabBar {...props} />);
 
 type Props = {};
 export default class HomePage extends Component<Props> {

@@ -11,7 +11,7 @@ export default class WelcomePage extends Component<Props> {
     componentDidMount() {
         this.timer = setTimeout(() => {
             const {navigation} = this.props;
-            navigation.navigate('Home');
+            navigation.navigate('BottomTabNavigator');
         }, 1000)
     }
 
