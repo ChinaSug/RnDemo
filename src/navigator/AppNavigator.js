@@ -1,17 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
     ActivityIndicator,
     AsyncStorage,
     Button,
     StatusBar,
-    StyleSheet,
+    StyleSheet, Text,
     View,
 } from 'react-native';
 import {
     createStackNavigator,
     createSwitchNavigator,
     createAppContainer,
-    createBottomTabNavigator
+    createBottomTabNavigator, createMaterialTopTabNavigator
 } from 'react-navigation';
 import WelcomePage from '../WelcomePage';
 import HomePage from "../HomePage";
@@ -19,6 +19,7 @@ import UserPage from "../UserPage";
 import DetailPage from "../DetailPage";
 import MatericalIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {TabNavigator} from '../Tab';
 
 const BottomTabNavigator = createBottomTabNavigator(
     {
@@ -61,6 +62,19 @@ const BottomTabNavigator = createBottomTabNavigator(
                 )
             },
         },
+        Tab: {
+            screen: TabNavigator,
+            navigationOptions: {
+                tabBarLabel: "Tab",
+                tabBarIcon: ({tintColor, focused}) => (
+                    <Ionicons
+                        name={'ios-albums'}
+                        size={26}
+                        style={{color: tintColor}}
+                    />
+                )
+            },
+        }
     },
     {
         // 初始化哪个界面为显示的第一个界面，如果不配置，默认使用RouteConfigs中的第一个页面当做根界面
@@ -75,10 +89,12 @@ const BottomTabNavigator = createBottomTabNavigator(
     }
 );
 
+
 export default createSwitchNavigator(
     {
         Welcome: WelcomePage,
         BottomTabNavigator: BottomTabNavigator,
+        TabNavigator: TabNavigator,
     },
     {
         initialRouteName: 'Welcome',

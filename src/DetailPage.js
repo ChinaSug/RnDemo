@@ -1,6 +1,9 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import {
+    createMaterialTopTabNavigator,
+} from 'react-navigation';
 
 type Props = {};
 export default class DetailPage extends Component<Props> {
